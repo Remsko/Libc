@@ -1,12 +1,12 @@
 NAME = libft.a
 CC = gcc
 RM = rm -rf
-CFLAGS = -c -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 SRC =  \
 
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC:.c=.o)
-	OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME)) 
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME)) 
 
 all: $(NAME)
 
