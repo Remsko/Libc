@@ -2,22 +2,26 @@ NAME = libft.a
 CC = gcc
 RM = rm -rf
 CFLAGS = -Wall -Werror -Wextra
-SRC =  \
+CPPFLAGS = -I./incs
+SRC_PATH = srcs/
+SRC_NAME =  memory/ft_memset.c \
+
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
 OBJ_PATH = obj/
-OBJ_NAME = $(SRC:.c=.o)
+OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME)) 
 
 all: $(NAME)
 
 $(OBJ_PATH):
-	@mkdir -p $(OBJ_PATH)
+	@mkdir -p $(OBJ_PATH)memory
 
 $(NAME): $(OBJ_PATH) $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
 
-$(OBJ_PATH)%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 	@$(RM) $(OBJ)
