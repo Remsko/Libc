@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+#include "string_42.h"
+
+int	main(void)
+{
+	char *str;
+	
+	size_t a;
+	size_t b;
+
+	str = strdup("eljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkijefzkjfezkjfezklfzelkfjzekjfzekjfzeklfjklezkfeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkijefzkjfezkjfezklfzelkfjzekjfzekjfzeklfjklezkfjeirjziejfiezjfezijfzeizeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkijefzkjfezkjfezklfzelkfjzekjfzekjfzeklfjklezkfjeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkijefzkjfezkjfezklfzelkfjzekjfzekjfzeklfjklezkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkeljzegkjezkjgezkgjezkgjzkejgkzejgklzejgklehglkezhgkzehgkzehgklghzkleghklzehggggggggggghezkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkijefzkjfezkjfezklfzelkfjzekjfzekjfzeklfjklezkfjze");
+//		printf("STR = %p ", (void *)str);
+	size_t j = strlen(str);
+	for (size_t i = 0; i < j; i++)
+	{
+		a = strnlen(&str[i], j);
+		b = ft_strnlen(&str[i], j);
+		if (a != b)
+			printf("%zu %zu", a, b);
+		printf("\n");
+	}
+	return (0);
+}

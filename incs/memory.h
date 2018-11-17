@@ -15,9 +15,12 @@
 
 # include <stdlib.h>
 
-# define MEM_WORD_LEN (sizeof(unsigned long int))
-# define MEM_BLOCK_SIZE (8 * MEM_WORD_LEN)
+# define MEM_WORD_LEN	(sizeof(unsigned long int))
+# define MEM_BLOCK_SIZE	(8 * MEM_WORD_LEN)
 # define MEM_PAGE_SIZE	(4096)
-# define MEM_THRESHOLD (2 * MEM_WORD_LEN)
+# define MEM_THRESHOLD	(2 * MEM_WORD_LEN)
+# define OVER_HEIGHT	(0xFFFFFFFFFFFFFFF8UL)
+# define MASK80		(0x8080808080808080UL)
+# define MASK01		(0x0101010101010101UL)
 
 #endif
