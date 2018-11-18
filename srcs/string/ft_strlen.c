@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory.h"
+#include "memory_42.h"
 
 static inline size_t found_zero(const char *str, const char *ptr,  unsigned long int ul_ptr)
 {

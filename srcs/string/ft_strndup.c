@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include "memory_42.h"
+#include "string_42.h"
 
 char	*ft_strndup(const char *s, size_t n)
 {

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory.h"
+#include "memory_42.h"
 
-static inline void	copy_by64byte(long int dst_ptr, unsigned long int cccc)
+inline static void	copy_by64byte(long int dst_ptr, unsigned long int cccc)
 {
 	((unsigned long int *)dst_ptr)[0] = cccc;
 	((unsigned long int *)dst_ptr)[1] = cccc;
@@ -24,8 +24,7 @@ static inline void	copy_by64byte(long int dst_ptr, unsigned long int cccc)
 	((unsigned long int *)dst_ptr)[7] = cccc;
 }
 
-static inline void	copy_by8and64byte(long int *dst_ptr, size_t *len, \
-		unsigned long int cccc)
+inline static void	copy_by8and64byte(long int *dst_ptr, size_t *len, unsigned long int cccc)
 {
 	size_t xlen;
 

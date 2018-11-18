@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEMORY_H
-# define MEMORY_H
+#ifndef MEMORY_42_H
+# define MEMORY_42_H
 
 # include <stdlib.h>
 
@@ -22,5 +22,7 @@
 # define OVER_HEIGHT	(0xFFFFFFFFFFFFFFF8UL)
 # define MASK80		(0x8080808080808080UL)
 # define MASK01		(0x0101010101010101UL)
+
+void *ft_memcpy(void *dstpp, const void *srcpp, size_t len);
 
 #endif

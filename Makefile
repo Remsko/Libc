@@ -5,8 +5,11 @@ CFLAGS = -Wall -Werror -Wextra
 CPPFLAGS = -I./incs
 SRC_PATH = srcs/
 SRC_NAME =	memory/ft_memset.c \
+		memory/ft_memchr.c \
 		string/ft_strlen.c \
 		string/ft_strnlen.c \
+		string/ft_strdup.c \
+		string/ft_strndup.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

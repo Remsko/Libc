@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "memory_42.h"
 
 void byte_copy_forward(unsigned long int dst_bp, unsigned long int src_bp, size_t nbytes)
 {
