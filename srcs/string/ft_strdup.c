@@ -1,6 +1,17 @@
-#include <stdlib.h>
-#include "string_42.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/25 15:56:47 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/25 16:48:14 by rpinoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
+#include "string_42.h"
 
 char *ft_strdup(const char *s)
 {
@@ -8,8 +19,7 @@ char *ft_strdup(const char *s)
 	size_t	len;
 
 	len = ft_strlen(s) + 1;
-	new = malloc(len);
-	if (new == NULL)
+	if ((new = malloc(len)) == NULL)
 		return (NULL);
 	return ((char *)ft_memcpy(new, s, len));
 }

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/25 15:55:30 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/25 15:56:06 by rpinoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
-void *memchr(void const *s, int c, size_t n)
+void *ft_memchr(void const *s, int c, size_t n)
 {
 	const unsigned char	*ptr;
 	unsigned long int	ul_ptr;

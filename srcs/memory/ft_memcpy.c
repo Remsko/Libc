@@ -6,11 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 13:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/12 17:20:11 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/25 16:28:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
+#include "string_42.h"
 
 void byte_copy_forward(unsigned long int dst_bp, unsigned long int src_bp, size_t nbytes)
 {
