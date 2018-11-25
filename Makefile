@@ -14,6 +14,8 @@ CPPFLAGS = $(addprefix -I,$(INC_PATH))
 SRC_PATH = srcs
 
 SRC_SUB += memory
+SRC_NAME +=	ft_mempcpy.c
+SRC_NAME +=	ft_memccpy.c
 SRC_NAME +=	ft_memset.c
 SRC_NAME +=	ft_memchr.c
 SRC_NAME +=	ft_bzero.c
