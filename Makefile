@@ -32,6 +32,17 @@ SRC_NAME += ft_strncmp.c
 SRC_NAME += ft_strcpy.c
 SRC_NAME += ft_strncpy.c
 
+SRC_SUB += ascii
+SRC_NAME += ft_isascii.c
+SRC_NAME += ft_isalnum.c
+SRC_NAME += ft_isalpha.c
+SRC_NAME += ft_isdigit.c
+SRC_NAME += ft_isprint.c
+SRC_NAME += ft_isspace.c
+#\
+SRC_NAME += ft_toupper.c\
+SRC_NAME += ft_tolower.c\
+
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
 OBJ_PATH = obj
