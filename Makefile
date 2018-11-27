@@ -14,16 +14,16 @@ CPPFLAGS = $(addprefix -I,$(INC_PATH))
 SRC_PATH = srcs
 
 SRC_SUB += memory
+SRC_NAME += ft_memalloc.c
+SRC_NAME +=	ft_memchr.c
+SRC_NAME += ft_memdel.c
 #SRC_NAME += ft_memcpy.c
 #SRC_NAME += ft_memmove.c
 #SRC_NAME += ft_memcmp.c
 SRC_NAME +=	ft_mempcpy.c
 SRC_NAME +=	ft_memccpy.c
 SRC_NAME +=	ft_memset.c
-SRC_NAME +=	ft_memchr.c
 SRC_NAME +=	ft_bzero.c
-#SRC_NAME += ft_memalloc.c
-#SRC_NAME += ft_memdel.c
 
 SRC_SUB += string
 SRC_NAME += ft_strlen.c
@@ -38,6 +38,9 @@ SRC_NAME += ft_strcpy.c
 SRC_NAME += ft_strncpy.c
 SRC_NAME += ft_strchr.c
 SRC_NAME += ft_strrchr.c
+#SRC_NAME += ft_strdel.c
+#SRC_NAME += ft_strequ.c
+#SRC_NAME += ft_strnequ.c
 
 SRC_SUB += ascii
 SRC_NAME += ft_isascii.c
