@@ -36,7 +36,7 @@ SRC_NAME += ft_strcmp.c
 SRC_NAME += ft_strncmp.c
 SRC_NAME += ft_strcpy.c
 SRC_NAME += ft_strncpy.c
-#SRC_NAME += ft_strchr.c
+SRC_NAME += ft_strchr.c
 SRC_NAME += ft_strrchr.c
 
 SRC_SUB += ascii
