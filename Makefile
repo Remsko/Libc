@@ -52,6 +52,10 @@ SRC_NAME += ft_isspace.c
 SRC_NAME += ft_tolower.c
 SRC_NAME += ft_toupper.c
 
+SRC_SUB += math
+SRC_NAME += is_pwrof2.c
+SRC_NAME += next_pwrof2.c
+
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
 OBJ_PATH = obj
