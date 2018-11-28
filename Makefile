@@ -15,6 +15,7 @@ SRC_PATH = srcs
 
 SRC_SUB += memory
 SRC_NAME += ft_memalloc.c
+SRC_NAME += ft_realloc.c
 SRC_NAME +=	ft_memchr.c
 SRC_NAME += ft_memdel.c
 #SRC_NAME += ft_memcpy.c
@@ -38,9 +39,9 @@ SRC_NAME += ft_strcpy.c
 SRC_NAME += ft_strncpy.c
 SRC_NAME += ft_strchr.c
 SRC_NAME += ft_strrchr.c
-#SRC_NAME += ft_strdel.c
-#SRC_NAME += ft_strequ.c
-#SRC_NAME += ft_strnequ.c
+SRC_NAME += ft_strdel.c
+SRC_NAME += ft_strequ.c
+SRC_NAME += ft_strnequ.c
 
 SRC_SUB += ascii
 SRC_NAME += ft_isascii.c
@@ -55,6 +56,12 @@ SRC_NAME += ft_toupper.c
 SRC_SUB += math
 SRC_NAME += is_pwrof2.c
 SRC_NAME += next_pwrof2.c
+
+SRC_SUB += array
+SRC_NAME += array_create.c
+SRC_NAME += array_index.c
+SRC_NAME += array_append.c
+SRC_NAME += array_dispose.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 

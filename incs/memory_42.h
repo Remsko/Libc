@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory.h                                           :+:      :+:    :+:   */
+/*   memory_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:37:01 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/27 15:02:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/28 11:47:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define MASK01			(0x0101010101010101UL)
 
 void    *ft_memalloc(size_t size);
+void    *ft_realloc(void *p, size_t new, size_t old);
 void	ft_memdel(void **ap);
 void	*ft_memcpy(void *dstpp, const void *srcpp, size_t len);
 void	*ft_mempcpy(void *dst, const void *src, size_t len);

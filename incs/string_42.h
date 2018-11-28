@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:56:27 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/27 11:22:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/28 13:22:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,10 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+
+int     ft_strequ(char const *s1, char const *s2);
+int     ft_strnequ(char const *s1, char const *s2, size_t n);
+
+void    ft_strdel(char **as);
 
 #endif

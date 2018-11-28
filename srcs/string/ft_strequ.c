@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_42.h                                         :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 15:24:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 11:58:05 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/11/28 13:15:02 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/28 13:16:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_42_H
-# define ARRAY_42_H
+#include "string_42.h"
 
-# include <stddef.h>
-
-# define MIN_CAPACITY (16U)
-
-typedef struct	s_array
+int ft_strequ(char const *s1, char const *s2)
 {
-	size_t	length;
-	size_t	capacity;
-	size_t	size;
-	void	*content;
-}				t_array;
-
-t_array	*array_create(size_t size);
-void    *array_index(t_array *arr, size_t index);
-void	array_append(t_array *arr, void *elem);
-void    array_dispose(t_array *arr, void ft_free(void *, size_t));
-
-#endif
+    return (ft_strcmp(s1, s2) == 0);
+}

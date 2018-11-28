@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_42.h                                         :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 15:24:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 11:58:05 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/11/28 11:30:25 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/28 11:34:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_42_H
-# define ARRAY_42_H
+#include <stdlib.h>
+#include "memory_42.h"
 
-# include <stddef.h>
-
-# define MIN_CAPACITY (16U)
-
-typedef struct	s_array
+void    *ft_realloc(void *p, size_t new, size_t old)
 {
-	size_t	length;
-	size_t	capacity;
-	size_t	size;
-	void	*content;
-}				t_array;
+    void *ret;
 
-t_array	*array_create(size_t size);
-void    *array_index(t_array *arr, size_t index);
-void	array_append(t_array *arr, void *elem);
-void    array_dispose(t_array *arr, void ft_free(void *, size_t));
-
-#endif
+    if ((ret = malloc(new)) == NULL)
+        return (NULL);
+    ft_memcpy(ret, p, old);
+    free(p);
+    return (ret);
+}
