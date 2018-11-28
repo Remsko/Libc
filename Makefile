@@ -59,9 +59,11 @@ SRC_NAME += next_pwrof2.c
 
 SRC_SUB += array
 SRC_NAME += array_create.c
+SRC_NAME += array_resize_maybe.c
 SRC_NAME += array_index.c
 SRC_NAME += array_append.c
 SRC_NAME += array_dispose.c
+SRC_NAME += array_insert.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
