@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_42.h                                          :+:      :+:    :+:   */
+/*   list_del.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 17:38:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 18:23:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/11/28 17:59:27 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/28 18:01:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_42_H
-# define LIST_42_H
+#include "list_42.h"
 
-typedef struct      s_list
+inline void list_del(t_list *elem)
 {
-    struct s_list   *prev;
-    struct s_list   *next;
-}                   t_list;
-
-inline void list_head_init(t_list *head);
-inline void list_del(t_list *elem);
-inline void list_insert(t_list *new, t_list *prev, t_list *next);
-inline void list_add(t_list *newp, t_list *head);
-
-#endif
+    elem->next->prev = elem->prev;
+    elem->next->next = elem->next;
+}

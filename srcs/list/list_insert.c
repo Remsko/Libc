@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_42.h                                          :+:      :+:    :+:   */
+/*   list_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 17:38:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 18:23:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/11/28 18:20:33 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/28 18:24:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_42_H
-# define LIST_42_H
+#include "list_42.h"
 
-typedef struct      s_list
+inline void list_insert(t_list *new, t_list *prev, t_list *next)
 {
-    struct s_list   *prev;
-    struct s_list   *next;
-}                   t_list;
-
-inline void list_head_init(t_list *head);
-inline void list_del(t_list *elem);
-inline void list_insert(t_list *new, t_list *prev, t_list *next);
-inline void list_add(t_list *newp, t_list *head);
-
-#endif
+	next->prev = new;
+	new->next = next;
+	new->prev = prev;
+	prev->next = new;
+}

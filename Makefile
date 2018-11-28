@@ -65,6 +65,12 @@ SRC_NAME += array_append.c
 SRC_NAME += array_dispose.c
 SRC_NAME += array_insert.c
 
+SRC_SUB += list
+SRC_NAME += list_head_init.c
+SRC_NAME += list_insert.c
+SRC_NAME += list_del.c
+SRC_NAME += list_add.c
+
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
 OBJ_PATH = obj
