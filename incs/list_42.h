@@ -19,9 +19,9 @@ typedef struct      s_list
     struct s_list   *next;
 }                   t_list;
 
-inline void list_head_init(t_list *head);
-inline void list_del(t_list *elem);
-inline void list_insert(t_list *new, t_list *prev, t_list *next);
-inline void list_add(t_list *newp, t_list *head);
+void list_head_init(t_list *head);
+void list_del(t_list *elem);
+void list_insert(t_list *new, t_list *prev, t_list *next);
+void list_add(t_list *newp, t_list *head);
 
 #endif
