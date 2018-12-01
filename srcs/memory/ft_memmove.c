@@ -1,56 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 13:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/01 13:04:03 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/01 13:22:25 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/01 14:13:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
-#include "string_42.h"
 
-#define BYTE_COPY_FWD(dst_bp, src_bp, nbytes)                            \
+#define BYTE_COPY_BWD(dst_ep, src_ep, nbytes)                            \
     do                                                                   \
     {                                                                    \
         size_t bytes = (nbytes);                                         \
         while (bytes > 0)                                                \
         {                                                                \
-            ((unsigned char *)dst_bp)[0] = ((unsigned char *)src_bp)[0]; \
-            src_bp += 1;                                                 \
-            dst_bp += 1;                                                 \
+            src_ep -= 1;                                                 \
+            ((unsigned char *)dst_ep)[0] = ((unsigned char *)src_ep)[0]; \
+            dst_ep -= 1;                                                 \
             bytes -= 1;                                                  \
         }                                                                \
     } while (0)
 
-#define WORD_COPY_FWD(dst_bp, src_bp, nbytes_left, nbytes)                      \
+#define WORD_COPY_BWD(dst_ep, src_ep, nbytes_left, nbytes)                      \
     do                                                                          \
     {                                                                           \
-        if (src_bp % MEM_WORD_LEN == 0)                                         \
-            wordcopy_fwd_aligned(dst_bp, src_bp, (nbytes) / MEM_WORD_LEN);      \
+        if (src_ep % MEM_WORD_LEN == 0)                                         \
+            wordcopy_bwd_aligned(dst_ep, src_ep, (nbytes) / MEM_WORD_LEN);      \
         else                                                                    \
-            wordcopy_fwd_dest_aligned(dst_bp, src_bp, (nbytes) / MEM_WORD_LEN); \
-        src_bp += (nbytes) & -MEM_WORD_LEN;                                     \
-        dst_bp += (nbytes) & -MEM_WORD_LEN;                                     \
+            wordcopy_bwd_dest_aligned(dst_ep, src_ep, (nbytes) / MEM_WORD_LEN); \
+        src_ep -= (nbytes) & -MEM_WORD_LEN;                                     \
+        dst_ep -= (nbytes) & -MEM_WORD_LEN;                                     \
         (nbytes_left) = (nbytes) % MEM_WORD_LEN;                                \
     } while (0)
 
-void *ft_memcpy(void *dstpp, const void *srcpp, size_t len)
+void *ft_memmove(void *dest, const void *src, size_t len)
 {
-    unsigned long int dstp = (long int)dstpp;
-    unsigned long int srcp = (long int)srcpp;
+    unsigned long int dstp = (long int)dest;
+    unsigned long int srcp = (long int)src;
 
-    if (len >= MEM_THRESHOLD)
+    if (dstp - srcp >= len)
+        dest = ft_memcpy(dest, src, len);
+    else
     {
-        len -= (-dstp) % MEM_WORD_LEN;
-
-        BYTE_COPY_FWD(dstp, srcp, (-dstp) % MEM_WORD_LEN);
-
-        WORD_COPY_FWD(dstp, srcp, len, len);
+        srcp += len;
+        dstp += len;
+        if (len >= MEM_THRESHOLD)
+        {
+            len -= dstp % MEM_WORD_LEN;
+            BYTE_COPY_BWD(dstp, srcp, dstp % MEM_WORD_LEN);
+            WORD_COPY_BWD(dstp, srcp, len, len);
+        }
+        BYTE_COPY_BWD(dstp, srcp, len);
     }
-    BYTE_COPY_FWD(dstp, srcp, len);
-    return dstpp;
+    return (dest);
 }

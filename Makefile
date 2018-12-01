@@ -18,13 +18,19 @@ SRC_NAME += ft_memalloc.c
 SRC_NAME += ft_realloc.c
 SRC_NAME +=	ft_memchr.c
 SRC_NAME += ft_memdel.c
-#SRC_NAME += ft_memcpy.c
-#SRC_NAME += ft_memmove.c
+SRC_NAME += ft_memcpy.c
+SRC_NAME += ft_memmove.c
 #SRC_NAME += ft_memcmp.c
 SRC_NAME +=	ft_mempcpy.c
 SRC_NAME +=	ft_memccpy.c
 SRC_NAME +=	ft_memset.c
 SRC_NAME +=	ft_bzero.c
+
+SRC_SUB += memory/wordcopy
+SRC_NAME += wordcopy_fwd_aligned.c
+SRC_NAME += wordcopy_fwd_dest_aligned.c
+SRC_NAME += wordcopy_bwd_aligned.c
+SRC_NAME += wordcopy_bwd_dest_aligned.c
 
 SRC_SUB += string
 SRC_NAME += ft_strlen.c
