@@ -2,3 +2,7 @@
 obj/
 *.swp
 *.DS_Store
+*.dSYM
+*.a
+*.out
+*main.c
