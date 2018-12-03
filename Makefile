@@ -70,6 +70,7 @@ SRC_NAME += array_index.c
 SRC_NAME += array_append.c
 SRC_NAME += array_dispose.c
 SRC_NAME += array_insert.c
+SRC_NAME += array_fit.c
 
 SRC_SUB += list
 SRC_NAME += list_head_init.c
