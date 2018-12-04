@@ -4,8 +4,17 @@ RM = rm -rf
 
 INC_PATH += ./incs
 
+INC_NAME += libft.h
+INC_NAME += array_42.h
+INC_NAME += ascii_42.h
+INC_NAME += conv_42.h
+INC_NAME += list_42.h
+INC_NAME += math_42.h
 INC_NAME += memory_42.h
+INC_NAME += read_42.h
 INC_NAME += string_42.h
+INC_NAME += write_42.h
+
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
 CFLAGS = -Wall -Werror -Wextra
@@ -48,6 +57,8 @@ SRC_NAME += ft_strrchr.c
 SRC_NAME += ft_strdel.c
 SRC_NAME += ft_strequ.c
 SRC_NAME += ft_strnequ.c
+SRC_NAME += ft_strjoin.c
+SRC_NAME += ft_strsub.c
 
 SRC_SUB += ascii
 SRC_NAME += ft_isascii.c
@@ -77,6 +88,23 @@ SRC_NAME += list_head_init.c
 SRC_NAME += list_insert.c
 SRC_NAME += list_del.c
 SRC_NAME += list_add.c
+
+SRC_SUB += conv
+SRC_NAME += ft_itoa.c
+SRC_NAME += ft_atoi.c
+
+SRC_SUB += read
+SRC_NAME += get_next_line.c
+
+SRC_SUB += write
+SRC_NAME += ft_putchar.c
+SRC_NAME += ft_putchar_fd.c
+SRC_NAME += ft_putendl.c
+SRC_NAME += ft_putendl_fd.c
+SRC_NAME += ft_putnbr.c
+SRC_NAME += ft_putnbr_fd.c
+SRC_NAME += ft_putstr.c
+SRC_NAME += ft_putstr_fd.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
