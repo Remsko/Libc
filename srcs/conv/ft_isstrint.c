@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_42.h                                          :+:      :+:    :+:   */
+/*   ft_isstrint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 16:01:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/04 17:50:43 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/04 17:48:28 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/04 17:50:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONV_42_H
-#define CONV_42_H
+#include <stdbool.h>
+#include "string_42.h"
+#include "conv_42.h"
 
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-bool	ft_isstrint(char *str, int *target);
+bool	ft_isstrint(char *str, int *target)
+{
+	char	*cmp;
+	bool	ret;
 
-#endif
+	ret = true;
+	*target = ft_atoi(str);
+	cmp = ft_itoa(*target);
+	if (ft_strcmp(str, cmp) != 0)
+		ret = false;
+	ft_strdel(&cmp);
+	return (ret);
+}
