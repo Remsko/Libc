@@ -92,7 +92,7 @@ SRC_NAME += list_add.c
 SRC_SUB += conv
 SRC_NAME += ft_itoa.c
 SRC_NAME += ft_atoi.c
-SRC_NAME += ft_isstrint.c
+SRC_NAME += ft_isatoi.c
 
 SRC_SUB += read
 SRC_NAME += get_next_line.c

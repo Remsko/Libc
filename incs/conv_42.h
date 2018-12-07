@@ -15,6 +15,6 @@
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
-bool	ft_isstrint(char *str, int *target);
+bool	ft_isatoi(char *str, int *n);
 
 #endif

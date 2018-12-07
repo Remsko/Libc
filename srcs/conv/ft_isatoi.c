@@ -14,16 +14,14 @@
 #include "string_42.h"
 #include "conv_42.h"
 
-bool	ft_isstrint(char *str, int *target)
+bool	ft_isatoi(char *str, int *n)
 {
 	char	*cmp;
 	bool	ret;
 
-	ret = true;
-	*target = ft_atoi(str);
-	cmp = ft_itoa(*target);
-	if (ft_strcmp(str, cmp) != 0)
-		ret = false;
+	*n = ft_atoi(str);
+	cmp = ft_itoa(*n);
+	ret = ft_strequ(str, cmp);
 	ft_strdel(&cmp);
 	return (ret);
 }
