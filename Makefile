@@ -14,6 +14,7 @@ INC_NAME += memory_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
+INC_NAME += error_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -106,6 +107,9 @@ SRC_NAME += ft_putnbr.c
 SRC_NAME += ft_putnbr_fd.c
 SRC_NAME += ft_putstr.c
 SRC_NAME += ft_putstr_fd.c
+
+SRC_SUB += error
+SRC_NAME += error_malloc.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
