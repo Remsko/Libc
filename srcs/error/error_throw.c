@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:28:37 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/19 11:55:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/19 16:07:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,23 @@ void    error_throw(t_error *err, void (*strfy)(t_status), bool debug_mode)
 {
     if (err != NULL)
     {
-        ft_putstr_fd(err->msg, 2);
-        if (debug_mode == true)
-            ft_putendl_fd(err->debug, 2);
-        ft_putstr_fd("Exit on status: ", 2);
-        strfy(err->status);
+        if (err->msg != NULL)
+        {
+            ft_putendl_fd(err->msg, 2);
+            ft_strdel(&err->msg);
+        }
+        if (err->debug != NULL)
+        {
+            if (debug_mode == true)
+                ft_putendl_fd(err->debug, 2);
+            ft_strdel(&err->debug);
+        }
+        if (strfy != NULL)
+        {
+            ft_putstr_fd("Exit on status: ", 2);
+            strfy(err->status);
+        }
         ft_putstr_fd("\n", 2);
     }
+    free(err);
 }
