@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:41:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/19 11:54:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/19 17:05:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ t_error *error_create(char *msg, char *debug, t_status status)
 
     if ((err = (t_error *)malloc(sizeof(t_error))) == NULL)
         error_malloc("error_create function line 22.");
-    if ((err->msg = ft_strdup(msg)) == NULL)
+    if (msg != NULL)
+        if ((err->msg = ft_strdup(msg)) == NULL)
         error_malloc("error_create function line 24.");
-    if ((err->debug = ft_strdup(debug)) == NULL)
+    if (debug != NULL)
+        if ((err->debug = ft_strdup(debug)) == NULL)
         error_malloc("error_create function line 26.");
     err->status = status;
     return (err);

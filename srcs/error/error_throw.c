@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:28:37 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/19 16:07:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/19 16:58:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "error_42.h"
 #include "string_42.h"
 #include "write_42.h"
