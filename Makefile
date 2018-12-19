@@ -110,6 +110,8 @@ SRC_NAME += ft_putstr_fd.c
 
 SRC_SUB += error
 SRC_NAME += error_malloc.c
+SRC_NAME += error_create.c
+SRC_NAME += error_throw.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
