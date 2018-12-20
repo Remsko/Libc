@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:46:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/19 16:56:27 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/20 17:16:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef struct      s_error
 void    error_malloc(char *where);
 t_error *error_create(char *msg, char *debug, unsigned char status);
 void    error_throw(t_error *err, void (*strfy)(t_status), bool debug_mode);
+void    malloc_or_die(void **ptr, size_t size, char *where);
 
 #endif

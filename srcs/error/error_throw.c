@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:28:37 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/19 16:58:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/20 18:02:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void    error_throw(t_error *err, void (*strfy)(t_status), bool debug_mode)
         }
         if (strfy != NULL)
         {
-            ft_putstr_fd("Exit on status: ", 2);
+            ft_putendl_fd("Exit on status: ", 2);
             strfy(err->status);
         }
-        ft_putstr_fd("\n", 2);
+        free(err);
     }
-    free(err);
 }

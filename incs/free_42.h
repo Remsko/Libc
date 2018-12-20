@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_dispose.c                                    :+:      :+:    :+:   */
+/*   free_42.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 11:48:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 17:49:14 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/20 17:50:09 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/20 17:50:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "array_42.h"
+#ifndef FREE_42_H
+#define FREE_42_H
 
-void    array_dispose(t_array *arr, void ft_free(void *, size_t))
-{
-    if (ft_free != NULL)
-        ft_free((void *)arr->content, arr->length);
-    free(arr);
-}
+#include <stddef.h>
+
+void    free_2d_char(void *ptr, size_t size);
+
+#endif
