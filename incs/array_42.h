@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:24:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/03 15:52:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/21 20:10:39 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 typedef struct	s_array
 {
+	void	*content;
 	size_t	length;
 	size_t	capacity;
 	size_t	size;
-	void	*content;
 }				t_array;
 
 t_array	*array_create(size_t size);
