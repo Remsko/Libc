@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_2d_char.c                                     :+:      :+:    :+:   */
+/*   ft_splitlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 17:44:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/23 21:18:29 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/23 21:55:50 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/23 21:55:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
-void    free_2d_char(void *ptr, size_t size)
+size_t  ft_splitlen(char **split)
 {
-    char    **tmp;
-    size_t  i;
+    size_t length;
 
-    tmp = (char **)ptr;
-    i = 0;
-    if (tmp != NULL)
+    length = 0;
+    if (split != NULL)
     {
-        while (i < size)
-        {
-            if (tmp[i] != NULL)
-                free(tmp[i]);
-            ++i;
-        }
-        free(tmp);
+        while (split[length] != NULL)
+            ++length;
     }
+    return (length);
 }

@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_2d_char.c                                     :+:      :+:    :+:   */
+/*   ft_strwords.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 17:44:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/23 21:18:29 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/23 12:58:37 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/23 13:57:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
-void    free_2d_char(void *ptr, size_t size)
+size_t  ft_strwords(const char *s, char c)
 {
-    char    **tmp;
-    size_t  i;
+    size_t  words;
+    size_t  flag;
 
-    tmp = (char **)ptr;
-    i = 0;
-    if (tmp != NULL)
+    words = 0;
+    flag = 0;
+    if (s != NULL)
     {
-        while (i < size)
+        while (*s != '\0')
         {
-            if (tmp[i] != NULL)
-                free(tmp[i]);
-            ++i;
+            if (*s == c)
+                flag = 0;
+            else if (flag == 0)
+            {
+                flag = 1;
+                ++words;
+            }
+            ++s;
         }
-        free(tmp);
     }
+    return (words);
 }

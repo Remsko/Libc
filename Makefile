@@ -61,6 +61,9 @@ SRC_NAME += ft_strequ.c
 SRC_NAME += ft_strnequ.c
 SRC_NAME += ft_strjoin.c
 SRC_NAME += ft_strsub.c
+SRC_NAME += ft_strwords.c
+SRC_NAME += ft_strsplit.c
+SRC_NAME += ft_splitlen.c
 
 SRC_SUB += ascii
 SRC_NAME += ft_isascii.c

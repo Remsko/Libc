@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:46:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 17:16:28 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/22 17:45:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ERROR_42_H
 
 #include <stdbool.h>
+#include <stddef.h>
 
 typedef unsigned char t_status;
 

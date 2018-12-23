@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:56:27 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/04 16:23:11 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/23 21:56:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ void    ft_strdel(char **as);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+
+size_t  ft_strwords(const char *s, char c);
+char	**ft_strsplit(char const *s, char c);
+size_t  ft_splitlen(char **split);
 
 #endif
