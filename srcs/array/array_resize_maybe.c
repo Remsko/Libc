@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 14:45:14 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 15:09:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/21 20:01:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void array_resize_maybe(t_array *arr)
 {
     if (arr->length == arr->capacity - 1)
     {
-        arr->capacity <<= 2;
+        arr->capacity <<= 1;
         arr->content = ft_realloc(arr->content, arr->capacity * arr->size, arr->length * arr->size);
     }
 }

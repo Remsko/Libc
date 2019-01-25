@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 10:01:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/04 16:11:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/12/22 19:08:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ static int	read_line(const int fd, char **pos, char **line)
 		if (cut_line(pos, line))
 			return (1);
 	}
+	*line = *pos;
+	*pos = NULL;
 	return (0);
 }
 

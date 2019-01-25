@@ -14,6 +14,8 @@ INC_NAME += memory_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
+INC_NAME += error_42.h
+INC_NAME += free_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -59,6 +61,9 @@ SRC_NAME += ft_strequ.c
 SRC_NAME += ft_strnequ.c
 SRC_NAME += ft_strjoin.c
 SRC_NAME += ft_strsub.c
+SRC_NAME += ft_strwords.c
+SRC_NAME += ft_strsplit.c
+SRC_NAME += ft_splitlen.c
 
 SRC_SUB += ascii
 SRC_NAME += ft_isascii.c
@@ -107,6 +112,15 @@ SRC_NAME += ft_putnbr.c
 SRC_NAME += ft_putnbr_fd.c
 SRC_NAME += ft_putstr.c
 SRC_NAME += ft_putstr_fd.c
+
+SRC_SUB += error
+SRC_NAME += error_malloc.c
+SRC_NAME += error_create.c
+SRC_NAME += error_throw.c
+SRC_NAME += malloc_or_die.c
+
+SRC_SUB += free
+SRC_NAME += free_2d_char.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 

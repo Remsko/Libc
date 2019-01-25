@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_dispose.c                                    :+:      :+:    :+:   */
+/*   error_malloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 11:48:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 17:49:14 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/13 14:45:12 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/20 17:31:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "array_42.h"
+#include "write_42.h"
 
-void    array_dispose(t_array *arr, void ft_free(void *, size_t))
+void    error_malloc(char *where)
 {
-    if (ft_free != NULL)
-        ft_free((void *)arr->content, arr->length);
-    free(arr);
+    ft_putstr_fd("Error: malloc returned NULL in ", 2);
+    ft_putendl_fd(where, 2);
+    exit(EXIT_FAILURE);
 }

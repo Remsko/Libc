@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_dispose.c                                    :+:      :+:    :+:   */
+/*   ft_strwords.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 11:48:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 17:49:14 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/23 12:58:37 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/23 13:57:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "array_42.h"
+#include <stddef.h>
 
-void    array_dispose(t_array *arr, void ft_free(void *, size_t))
+size_t  ft_strwords(const char *s, char c)
 {
-    if (ft_free != NULL)
-        ft_free((void *)arr->content, arr->length);
-    free(arr);
+    size_t  words;
+    size_t  flag;
+
+    words = 0;
+    flag = 0;
+    if (s != NULL)
+    {
+        while (*s != '\0')
+        {
+            if (*s == c)
+                flag = 0;
+            else if (flag == 0)
+            {
+                flag = 1;
+                ++words;
+            }
+            ++s;
+        }
+    }
+    return (words);
 }

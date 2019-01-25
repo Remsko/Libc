@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_dispose.c                                    :+:      :+:    :+:   */
+/*   ft_splitlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 11:48:13 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 17:49:14 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/12/23 21:55:50 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/12/23 21:55:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "array_42.h"
+#include <stddef.h>
 
-void    array_dispose(t_array *arr, void ft_free(void *, size_t))
+size_t  ft_splitlen(char **split)
 {
-    if (ft_free != NULL)
-        ft_free((void *)arr->content, arr->length);
-    free(arr);
+    size_t length;
+
+    length = 0;
+    if (split != NULL)
+    {
+        while (split[length] != NULL)
+            ++length;
+    }
+    return (length);
 }
