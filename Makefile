@@ -96,6 +96,7 @@ SRC_NAME += ft_isatoi.c
 
 SRC_SUB += read
 SRC_NAME += get_next_line.c
+SRC_NAME += read_file.c
 
 SRC_SUB += write
 SRC_NAME += ft_putchar.c
