@@ -4,18 +4,19 @@ RM = rm -rf
 
 INC_PATH += ./incs
 
-INC_NAME += libft.h
 INC_NAME += array_42.h
 INC_NAME += ascii_42.h
 INC_NAME += conv_42.h
+INC_NAME += error_42.h
+INC_NAME += free_42.h
+INC_NAME += libft.h
 INC_NAME += list_42.h
 INC_NAME += math_42.h
 INC_NAME += memory_42.h
+INC_NAME += queue_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
-INC_NAME += error_42.h
-INC_NAME += free_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -121,6 +122,11 @@ SRC_NAME += malloc_or_die.c
 
 SRC_SUB += free
 SRC_NAME += free_2d_char.c
+
+SRC_SUB += queue
+SRC_NAME += new_qnode.c
+SRC_NAME += create_queue.c
+SRC_NAME += de_queue.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
