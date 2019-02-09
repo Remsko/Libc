@@ -127,6 +127,7 @@ SRC_SUB += queue
 SRC_NAME += new_qnode.c
 SRC_NAME += create_queue.c
 SRC_NAME += de_queue.c
+SRC_NAME += en_queue.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
