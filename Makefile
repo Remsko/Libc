@@ -124,6 +124,7 @@ SRC_SUB += free
 SRC_NAME += free_2d_char.c
 
 SRC_SUB += rb_tree
+SRC_NAME += rb_tree_new_node.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
