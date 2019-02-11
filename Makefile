@@ -17,6 +17,10 @@ INC_NAME += queue_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
+INC_NAME += error_42.h
+INC_NAME += free_42.h
+INC_NAME += rb_tree_42.h
+
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -129,6 +133,9 @@ SRC_NAME += create_queue.c
 SRC_NAME += de_queue.c
 SRC_NAME += en_queue.c
 SRC_NAME += is_queue.c
+
+SRC_SUB += rb_tree
+
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
