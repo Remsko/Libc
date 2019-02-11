@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_tree_42.h                                       :+:      :+:    :+:   */
+/*   rb_tree_new_node.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 22:56:14 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/11 23:19:07 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/11 23:10:35 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/11 23:16:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RB_TREE_42_H
-#define RB_TREE_42_H
+#include "memory_42.h"
+#include "rb_tree_42.h"
 
-typedef enum e_rb_color
+t_rb_tree *rb_tree_new_node(void *data)
 {
-    RED,
-    BLACK
-} t_rb_color;
+    t_rb_tree *node;
 
-typedef struct s_rb_tree
-{
-    struct s_rb_tree *left;
-    struct s_rb_tree *right;
-    struct s_rb_tree *parent;
-    void *data;
-    t_rb_color color;
-} t_rb_tree;
-
-t_rb_tree *rb_tree_new_node(void *data);
-
-#endif
+    if ((node = (t_rb_tree *)ft_memalloc(sizeof(t_rb_tree))) != NULL)
+        node->data = data;
+    return (node);
+}

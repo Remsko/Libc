@@ -135,6 +135,7 @@ SRC_NAME += en_queue.c
 SRC_NAME += is_queue.c
 
 SRC_SUB += rb_tree
+SRC_NAME += rb_tree_new_node.c
 
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
