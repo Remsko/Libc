@@ -6,12 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:58:18 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/09 14:35:27 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/11 20:05:53 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUEUE_42_H
 #define QUEUE_42_h
+
+#include <stdbool.h>
 
 typedef struct s_qnode
 { 
@@ -29,8 +31,10 @@ t_queue *create_queue(void);
 
 t_qnode *new_qnode(int k);
 
-t_qnode *de_queue(t_queue *queue);
+int de_queue(t_queue *queue);
 
 void en_queue(t_queue *queue, int k);
+
+bool is_queue(t_queue *queue);
 
 #endif
