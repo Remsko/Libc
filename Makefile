@@ -16,6 +16,7 @@ INC_NAME += string_42.h
 INC_NAME += write_42.h
 INC_NAME += error_42.h
 INC_NAME += free_42.h
+INC_NAME += rb_tree_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -121,6 +122,8 @@ SRC_NAME += malloc_or_die.c
 
 SRC_SUB += free
 SRC_NAME += free_2d_char.c
+
+SRC_SUB += rb_tree
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
