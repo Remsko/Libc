@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 22:56:14 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/11 23:19:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/11 23:34:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef enum e_rb_color
 {
-    RED,
-    BLACK
+    RED = 0,
+    BLACK = 1
 } t_rb_color;
 
 typedef struct s_rb_tree
