@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:58:18 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/11 20:05:53 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/12 12:48:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUEUE_42_H
-#define QUEUE_42_h
+#define QUEUE_42_H
 
 #include <stdbool.h>
 
