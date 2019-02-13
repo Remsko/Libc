@@ -17,8 +17,6 @@ INC_NAME += queue_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
-INC_NAME += error_42.h
-INC_NAME += free_42.h
 INC_NAME += rb_tree_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
