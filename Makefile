@@ -17,6 +17,7 @@ INC_NAME += queue_42.h
 INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
+INC_NAME += rb_tree_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -129,6 +130,25 @@ SRC_NAME += create_queue.c
 SRC_NAME += de_queue.c
 SRC_NAME += en_queue.c
 SRC_NAME += is_queue.c
+
+SRC_SUB += rb_tree
+SRC_NAME += rb_tree_fixredred.c
+SRC_NAME += rb_tree_hasredchild.c
+SRC_NAME += rb_tree_insert.c
+SRC_NAME += rb_tree_isonleft.c
+SRC_NAME += rb_tree_left_rotate.c
+SRC_NAME += rb_tree_move_down.c
+SRC_NAME += rb_tree_new_node.c
+SRC_NAME += rb_tree_replace.c
+SRC_NAME += rb_tree_right_rotate.c
+SRC_NAME += rb_tree_search.c
+SRC_NAME += rb_tree_sibling.c
+SRC_NAME += rb_tree_successor.c
+SRC_NAME += rb_tree_uncle.c
+SRC_NAME += swap_colors.c
+SRC_NAME += swap_datas.c
+SRC_NAME += rb_tree_print_inorder.c
+SRC_NAME += rb_tree_delete.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
