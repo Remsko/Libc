@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_tree_uncle.c                                    :+:      :+:    :+:   */
+/*   rb_tree_replace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 12:54:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/13 13:39:26 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/13 12:27:15 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/13 12:29:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "rb_tree_42.h"
 
-t_rb_tree *rb_tree_uncle(t_rb_tree *node)
+t_rb_tree *rb_tree_replace(t_rb_tree *node)
 {
-    if (node->parent == NULL || node->parent->parent == NULL)
+    if (node->left != NULL && node->right != NULL)
+        return (rb_tree_successor(node));
+    if (node->left == NULL && node->right == NULL)
         return (NULL);
-    if (rb_tree_isonleft(node->parent))
-        return (node->parent->parent->right);
+    if (node->left != NULL)
+        return (node->left);
     else
-        return (node->parent->parent->left);
+        return (node->right);
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_tree_uncle.c                                    :+:      :+:    :+:   */
+/*   swap_colors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 12:54:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/13 13:39:26 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/13 11:42:25 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/13 12:09:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "rb_tree_42.h"
 
-t_rb_tree *rb_tree_uncle(t_rb_tree *node)
+void swap_colors(t_rb_tree *node1, t_rb_tree *node2)
 {
-    if (node->parent == NULL || node->parent->parent == NULL)
-        return (NULL);
-    if (rb_tree_isonleft(node->parent))
-        return (node->parent->parent->right);
-    else
-        return (node->parent->parent->left);
+    t_rb_color color;
+
+    color = node1->color;
+    node1->color = node2->color;
+    node2->color = color;
 }
