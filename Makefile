@@ -21,7 +21,6 @@ INC_NAME += error_42.h
 INC_NAME += free_42.h
 INC_NAME += rb_tree_42.h
 
-
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
 CFLAGS = -Wall -Werror -Wextra
@@ -152,7 +151,6 @@ SRC_NAME += swap_colors.c
 SRC_NAME += swap_datas.c
 SRC_NAME += rb_tree_print_inorder.c
 SRC_NAME += rb_tree_delete.c
-
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
