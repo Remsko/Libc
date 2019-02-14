@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 12:32:54 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/14 17:09:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/14 17:11:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool rb_tree_insert(t_rb_tree **root, void *data, int (*cmp_f)(void *, void *))
     int diff;
 
     if (root == NULL)
-        return ;
+        return (false);
     new_node = rb_tree_new_node(data);
     if (*root == NULL)
     {
