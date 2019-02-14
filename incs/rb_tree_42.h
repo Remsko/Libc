@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 22:56:14 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/13 15:11:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/14 17:08:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_rb_tree *rb_tree_replace(t_rb_tree *node);
 
 t_rb_tree *rb_tree_search(t_rb_tree *root, void *data, int (*cmp_f)(void *, void *));
 
-void rb_tree_insert(t_rb_tree **root, void *data, int (*cmp_f)(void *, void *));
+bool rb_tree_insert(t_rb_tree **root, void *data, int (*cmp_f)(void *, void *));
 
 void rb_tree_print_inorder(t_rb_tree *node, void (*printer)(void *));
 
