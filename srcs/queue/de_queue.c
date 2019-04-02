@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:20:47 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/11 20:02:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/01 23:59:08 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "queue_42.h"
 
-int de_queue(t_queue *queue)
+size_t de_queue(t_queue *queue)
 {
     int k;
     t_qnode *q;
