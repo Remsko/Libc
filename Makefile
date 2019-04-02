@@ -123,6 +123,7 @@ SRC_NAME += error_throw.c
 SRC_NAME += malloc_or_die.c
 
 SRC_SUB += free
+SRC_NAME += free_1d_char.c
 SRC_NAME += free_2d_char.c
 
 SRC_SUB += queue

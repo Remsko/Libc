@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_42.h                                          :+:      :+:    :+:   */
+/*   free_1d_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 17:50:09 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/02 02:23:29 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/04/02 02:22:31 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/04/02 02:22:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FREE_42_H
-#define FREE_42_H
+#include <stdlib.h>
 
-#include <stddef.h>
-
-void    free_1d_char(void *ptr, size_t length);
-
-void    free_2d_char(void *ptr, size_t size);
-
-#endif
+void free_1d_char(void *ptr, size_t length)
+{
+    (void)length;
+    free(ptr);
+}
