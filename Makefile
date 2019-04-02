@@ -18,6 +18,7 @@ INC_NAME += read_42.h
 INC_NAME += string_42.h
 INC_NAME += write_42.h
 INC_NAME += rb_tree_42.h
+INC_NAME += dll_42.h
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
@@ -149,6 +150,10 @@ SRC_NAME += swap_colors.c
 SRC_NAME += swap_datas.c
 SRC_NAME += rb_tree_print_inorder.c
 SRC_NAME += rb_tree_delete.c
+
+SRC_SUB += dll
+SRC_NAME += dll_push_front.c
+SRC_NAME += dll_delete.c
 
 vpath %.c $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 
