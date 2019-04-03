@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:20:47 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/01 23:59:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/03 20:14:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 size_t de_queue(t_queue *queue)
 {
-    int k;
+    size_t k;
     t_qnode *q;
 
     if (queue == NULL || queue->front == NULL)
