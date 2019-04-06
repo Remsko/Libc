@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 17:14:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/27 09:43:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/06 16:44:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ASCII_42_H
-#define ASCII_42_H
+# define ASCII_42_H
 
 int ft_isascii(int c);
 int ft_isalnum(int c);

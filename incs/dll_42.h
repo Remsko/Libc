@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 02:09:14 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/02 02:16:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/06 16:45:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ typedef struct	s_dll
 	void			*content;
 }				t_dll;
 
-void dll_delete(t_dll **head, t_dll *delete, void (del)(void *));
+void			dll_delete(t_dll **head, t_dll *delete, void (del)(void *));
 
-void dll_push_front(t_dll **head, void *content);
+void			dll_push_front(t_dll **head, void *content);
 
 #endif

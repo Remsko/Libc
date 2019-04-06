@@ -6,23 +6,23 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:37:01 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/01 14:14:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/06 16:51:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEMORY_42_H
-#define MEMORY_42_H
+# define MEMORY_42_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
-#define MEM_WORD_LEN (sizeof(unsigned long int))
-#define MEM_BLOCK_SIZE (8 * MEM_WORD_LEN)
-#define MEM_PAGE_SIZE (4096)
-#define MEM_THRESHOLD (2 * MEM_WORD_LEN)
-#define OVER_HEIGHT (0xFFFFFFFFFFFFFFF8UL)
-#define MASK80 (0x8080808080808080UL)
-#define MASK01 (0x0101010101010101UL)
-#define MERGE(w0, sh_1, w1, sh_2) (((w0) >> (sh_1)) | ((w1) << (sh_2)))
+# define MEM_WORD_LEN (sizeof(unsigned long int))
+# define MEM_BLOCK_SIZE (8 * MEM_WORD_LEN)
+# define MEM_PAGE_SIZE (4096)
+# define MEM_THRESHOLD (2 * MEM_WORD_LEN)
+# define OVER_HEIGHT (0xFFFFFFFFFFFFFFF8UL)
+# define MASK80 (0x8080808080808080UL)
+# define MASK01 (0x0101010101010101UL)
+# define MERGE(w0, sh_1, w1, sh_2) (((w0) >> (sh_1)) | ((w1) << (sh_2)))
 
 void *ft_memalloc(size_t size);
 void *ft_realloc(void *p, size_t new, size_t old);
