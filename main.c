@@ -35,9 +35,9 @@ int main(void)
         list_add(&(tmp->list), &(list.list));
         ++i;
     }
-
     t_list *stop = &list.list;
     t_list *pos = stop->next;
+        list_del(pos->prev, pos->next);
     while (pos != stop)
     {
         tmp = LIST_ENTRY(pos, t_rand, list);

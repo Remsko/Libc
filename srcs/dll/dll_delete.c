@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 02:13:27 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/02 02:19:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 20:55:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void dll_delete(t_dll **head, t_dll *delete, void (del)(void *))
 		delete->next->prev = delete->prev;  
 	if (delete->prev != NULL)  
 		delete->prev->next = delete->next;  
-	del(delete->content);
-	free(delete);  
-	return; 
+	if (del != NULL)
+		del(delete->content);
+	free(delete);
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:58:18 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/06 16:53:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 22:01:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct	s_queue
 
 t_queue			*create_queue(void);
 
-t_qnode			*new_qnode(size_t k);
+t_qnode			*new_qnode(size_t key);
 
 size_t			de_queue(t_queue *queue);
 
-void			en_queue(t_queue *queue, size_t k);
+void			en_queue(t_queue *queue, size_t key);
 
 bool			is_queue(t_queue *queue);
 

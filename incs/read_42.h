@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:09:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/06 16:55:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 22:27:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef READ_42_H
 # define READ_42_H
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE ((size_t)32U)
 
 int	get_next_line(const int fd, char **line);
 

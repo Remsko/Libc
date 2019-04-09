@@ -6,26 +6,26 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 17:44:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/23 21:18:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 21:47:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void    free_2d_char(void *ptr, size_t size)
+void    free_2d_char(void *ptr, size_t length)
 {
     char    **tmp;
-    size_t  i;
+    size_t  index;
 
     tmp = (char **)ptr;
-    i = 0;
+    index = 0;
     if (tmp != NULL)
     {
-        while (i < size)
+        while (index < length)
         {
-            if (tmp[i] != NULL)
-                free(tmp[i]);
-            ++i;
+            if (tmp[index] != NULL)
+                free(tmp[index]);
+            ++index;
         }
         free(tmp);
     }

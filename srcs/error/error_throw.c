@@ -6,36 +6,27 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:28:37 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/20 18:02:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 21:45:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
 #include <stdlib.h>
 #include "error_42.h"
-#include "string_42.h"
-#include "write_42.h"
 
-void    error_throw(t_error *err, void (*strfy)(t_status), bool debug_mode)
+int error_throw(t_error *err)
 {
-    if (err != NULL)
+    int ret;
+
+    if (err == NULL)
+        return (0);
+    if (err->msg != NULL)
     {
-        if (err->msg != NULL)
-        {
-            ft_putendl_fd(err->msg, 2);
-            ft_strdel(&err->msg);
-        }
-        if (err->debug != NULL)
-        {
-            if (debug_mode == true)
-                ft_putendl_fd(err->debug, 2);
-            ft_strdel(&err->debug);
-        }
-        if (strfy != NULL)
-        {
-            ft_putendl_fd("Exit on status: ", 2);
-            strfy(err->status);
-        }
-        free(err);
+        if (err->msg_printf != NULL)
+            err->msg_printf(err->msg);
+        if (err->msg_freef != NULL)
+            err->msg_freef(err->msg);
     }
+    ret = (int)err->status;
+    free(err);
+    return (ret);
 }

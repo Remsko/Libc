@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 14:46:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/06 16:44:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 21:43:31 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ typedef unsigned char	t_status;
 
 typedef struct	s_error
 {
-	char		*msg;
-	char		*debug;
+	void		*msg;
+	void		(*msg_printf)(void *msg);
+	void		(*msg_freef)(void *msg);
 	t_status	status;
 }				t_error;
 
-void			error_malloc(char *where);
-t_error			*error_create(char *msg, char *debug, unsigned char status);
-void			error_throw(t_error *err, void (*strfy)(t_status),
-					bool debug_mode);
+void			error_malloc_exit(char *where);
+t_error			*error_create(void *msg, void (*msg_printf)(void *msg),
+					void (*msg_freef)(void *msg), t_status status);
+int				error_throw(t_error *err);
 void			malloc_or_die(void **ptr, size_t size, char *where);
 
 #endif

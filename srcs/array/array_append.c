@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:18:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/21 19:55:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 20:37:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 void array_append(t_array *arr, const void *src)
 {
-    void *hole;
+    void *rear;
 
     array_resize_maybe(arr);
-    hole = array_index(arr, arr->length);
-    if (hole == NULL)
+    rear = array_index(arr, arr->length);
+    if (rear == NULL)
         return ;
-    ft_memcpy(hole, src, arr->size);
+    ft_memcpy(rear, src, arr->size);
     arr->length += 1;
 }

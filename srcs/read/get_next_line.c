@@ -6,16 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 10:01:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/22 19:08:40 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/09 22:43:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "read_42.h"
-#include "memory_42.h"
-#include "string_42.h"
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include "read_42.h"
+#include "memory_42.h"
+#include "string_42.h"
 
 static int	cut_line(char **pos, char **line)
 {
@@ -24,8 +24,7 @@ static int	cut_line(char **pos, char **line)
 	if ((n_pos = ft_strchr(*pos, (int)'\n')))
 	{
 		*line = ft_strsub(*pos, 0, n_pos - *pos);
-		ft_memmove(*pos, n_pos + 1, ft_strlen(n_pos));
-		n_pos = NULL;
+		*pos += n_pos - *pos + 1;
 		return (1);
 	}
 	return (0);
@@ -34,21 +33,19 @@ static int	cut_line(char **pos, char **line)
 static int	read_line(const int fd, char **pos, char **line)
 {
 	char	buf[BUFF_SIZE + 1];
-	char	*tmp;
 	int		ret;
+	size_t old;
 
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		if (ret == -1)
 			return (-1);
 		buf[ret] = '\0';
-		tmp = NULL;
 		if (*pos)
 		{
-			tmp = ft_strdup(*pos);
-			ft_strdel(*(&pos));
-			*pos = ft_strjoin(tmp, buf);
-			ft_strdel(&tmp);
+			old = ft_strlen(*pos);
+			ft_realloc(*pos, old + ft_strlen(buf), old);
+			ft_memcpy(*pos + old, buf, ret);
 		}
 		else
 			*pos = ft_strdup(buf);
@@ -62,10 +59,10 @@ static int	read_line(const int fd, char **pos, char **line)
 
 int			get_next_line(const int fd, char **line)
 {
-	static char	*pos;
+	static char	*pos = NULL;
 	int			ret;
 
-	if (fd < 0 || BUFF_SIZE < 1 || !line)
+	if (fd < 0 || BUFF_SIZE < 1 || line == NULL)
 		return (-1);
 	if (pos && cut_line(&pos, line))
 		return (1);
