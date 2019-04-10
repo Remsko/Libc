@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:32:29 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/04 16:44:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/10 14:12:08 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string_42.h"
-#include <unistd.h>
+#include "write_42.h"
 
 void	ft_putstr(char const *s)
 {
-	write(1, s, ft_strlen(s));
+	ft_putstr_fd(s, 1);
 }

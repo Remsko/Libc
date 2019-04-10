@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 12:23:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/04 16:44:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/10 14:11:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "write_42.h"
-#include "string_42.h"
-#include <unistd.h>
 
 void	ft_putendl(char const *s)
 {
-	write(1, s, ft_strlen(s));
-	ft_putchar('\n');
+	ft_putendl_fd(s, 1);
 }
