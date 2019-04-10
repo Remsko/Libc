@@ -6,54 +6,51 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 10:01:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/09 22:43:40 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/10 14:02:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include "read_42.h"
 #include "memory_42.h"
 #include "string_42.h"
 
-static int	cut_line(char **pos, char **line)
+static int	extract_line(char **pos, char **line, size_t start)
 {
-	char *n_pos;
+	char *newl;
 
-	if ((n_pos = ft_strchr(*pos, (int)'\n')))
-	{
-		*line = ft_strsub(*pos, 0, n_pos - *pos);
-		*pos += n_pos - *pos + 1;
-		return (1);
-	}
-	return (0);
+	if ((newl = ft_strchr(*pos + start, (int)'\n')) == NULL)
+		return (false);
+	*line = ft_strsub(*pos, 0, newl - *pos);
+	ft_memcpy(*pos, newl + 1, ft_strlen(newl));
+	return (true);
 }
 
-static int	read_line(const int fd, char **pos, char **line)
+static int	read_loop(const int fd, char **line, char **pos)
 {
-	char	buf[BUFF_SIZE + 1];
-	int		ret;
-	size_t old;
+	char		buff[BUFF_SIZE];
+	ssize_t		rtotal;
+	ssize_t		rret;
 
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	rtotal = (*pos) ? ft_strlen(*pos) : 0;
+	while ((rret = read(fd, buff, BUFF_SIZE)))
 	{
-		if (ret == -1)
-			return (-1);
-		buf[ret] = '\0';
-		if (*pos)
+		if (rret == -1)
 		{
-			old = ft_strlen(*pos);
-			ft_realloc(*pos, old + ft_strlen(buf), old);
-			ft_memcpy(*pos + old, buf, ret);
+			free(*pos);
+			return (-1);
 		}
-		else
-			*pos = ft_strdup(buf);
-		if (cut_line(pos, line))
+		*pos = ft_realloc(*pos, rtotal + rret + 1, rtotal);
+		ft_memcpy(*pos + rtotal, buff, rret);
+		(*pos)[rtotal + rret] = '\0';
+		if (extract_line(pos, line, rtotal))
 			return (1);
+		rtotal += rret;
 	}
-	*line = *pos;
-	*pos = NULL;
+	ft_strdel(pos);
 	return (0);
 }
 
@@ -64,13 +61,10 @@ int			get_next_line(const int fd, char **line)
 
 	if (fd < 0 || BUFF_SIZE < 1 || line == NULL)
 		return (-1);
-	if (pos && cut_line(&pos, line))
+	if (pos != NULL && extract_line(&pos, line, 0))
 		return (1);
-	if ((ret = read_line(fd, &pos, line)) != 0)
+	if ((ret = read_loop(fd, line, &pos)))
 		return (ret);
-	if (pos == NULL || pos[0] == '\0')
-		return (0);
 	*line = pos;
-	pos = NULL;
-	return (1);
+	return ((*line != NULL));
 }
