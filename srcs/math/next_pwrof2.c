@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 18:03:18 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/27 18:06:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:51:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "math_42.h"
 
-size_t next_pwrof2(size_t n)
+size_t	next_pwrof2(size_t n)
 {
 	if (n == 0)
 		return (1);

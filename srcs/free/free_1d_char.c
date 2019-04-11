@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 02:22:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/02 02:22:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:49:54 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void free_1d_char(void *ptr, size_t length)
+void	free_1d_char(void *ptr, size_t length)
 {
-    (void)length;
-    free(ptr);
+	(void)length;
+	free(ptr);
 }

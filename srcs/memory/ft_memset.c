@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:38:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/25 15:55:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:56:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ inline static void	copy_by64byte(long int dst_ptr, unsigned long int cccc)
 	((unsigned long int *)dst_ptr)[7] = cccc;
 }
 
-inline static void	copy_by8and64byte(long int *dst_ptr, size_t *len, unsigned long int cccc)
+inline static void	copy_by8and64byte(long int *dst_ptr, size_t *len,
+						unsigned long int cccc)
 {
 	size_t xlen;
 

@@ -6,16 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:14:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/10 14:14:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:25:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_42.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	const char *found;
-	const char *ptr;
+	const char	*found;
+	const char	*ptr;
 
 	c = (unsigned char)c;
 	if (c == '\0')

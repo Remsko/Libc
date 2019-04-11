@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpinoit <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/11 17:22:38 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/04/11 17:22:40 by rpinoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
-char    *ft_strchr(const char *s, int c_in)
+char	*ft_strchr(const char *s, int c_in)
 {
-	const unsigned char *ptr;
-	unsigned long int   ul_ptr;
-	unsigned long int   c_ptr;
-	unsigned long int   cccc;
+	const unsigned char	*ptr;
+	unsigned long int	ul_ptr;
+	unsigned long int	c_ptr;
+	unsigned long int	cccc;
 	unsigned char		c;
 
 	c = (unsigned char)c_in;

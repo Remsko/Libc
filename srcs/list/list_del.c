@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 17:59:27 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/03/31 23:17:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:50:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list_42.h"
 
-inline void list_del(t_list *prev, t_list *next)
+inline void	list_del(t_list *prev, t_list *next)
 {
-    next->prev = prev;
-    prev->next = next;
+	next->prev = prev;
+	prev->next = next;
 }

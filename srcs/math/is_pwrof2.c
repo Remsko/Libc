@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 17:58:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/09 21:55:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:51:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stddef.h>
 
-bool is_pwrof2(size_t n)
+bool	is_pwrof2(size_t n)
 {
 	return (n && !((n - 1) & n));
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 10:01:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/10 14:02:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:21:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	read_loop(const int fd, char **line, char **pos)
 	ssize_t		rtotal;
 	ssize_t		rret;
 
-	rtotal = (*pos) ? ft_strlen(*pos) : 0;
+	rtotal = (*pos != NULL) ? ft_strlen(*pos) : 0;
 	while ((rret = read(fd, buff, BUFF_SIZE)))
 	{
 		if (rret == -1)

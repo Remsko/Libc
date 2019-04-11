@@ -6,19 +6,19 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 11:30:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/24 22:47:53 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:33:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "memory_42.h"
 
-void    *ft_realloc(void *p, size_t new, size_t old)
+void	*ft_realloc(void *p, size_t new, size_t old)
 {
-    void *ret;
+	void *ret;
 
-    if ((ret = malloc(new)) != NULL)
-        ft_memcpy(ret, p, old);
-    free(p);
-    return (ret);
+	if ((ret = malloc(new)) != NULL)
+		ft_memcpy(ret, p, old);
+	free(p);
+	return (ret);
 }

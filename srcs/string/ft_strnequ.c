@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 13:17:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 13:19:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:25:31 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_42.h"
 
-int ft_strnequ(char const *s1, char const *s2, size_t n)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-    return (ft_strncmp(s1, s2, n) == 0);
+	return (ft_strncmp(s1, s2, n) == 0);
 }

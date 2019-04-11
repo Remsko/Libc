@@ -6,25 +6,22 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 12:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/12/23 13:57:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:29:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
-
 #include "string_42.h"
 
 char	**ft_strsplit(char const *s, char c)
 {
-	char		**split;
-    size_t      words;
-	size_t		length;
+	char	**split;
+	size_t	words;
+	size_t	length;
 
-	if (s == NULL)
-        return (NULL);
-    split = (char**)malloc(sizeof(char *) * (ft_strwords(s, c) + 1));
-    if (split == NULL)
+	if (s == NULL || (split = (char **)malloc(sizeof(char *)
+			* (ft_strwords(s, c) + 1))) == NULL)
 		return (NULL);
 	words = 0;
 	while (*s != '\0')

@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 13:21:01 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 13:22:42 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:23:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-void ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
-    ft_memdel((void **)as);
+	ft_memdel((void **)as);
 }

@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:56:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/12 12:57:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:00:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include "rb_tree_42.h"
 
-bool rb_tree_isonleft(t_rb_tree *node)
+bool	rb_tree_isonleft(t_rb_tree *node)
 {
-    return (node->parent->left == node);
+	return (node->parent->left == node);
 }

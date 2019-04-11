@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 16:02:05 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/25 16:48:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:25:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 #include "string_42.h"
 
-char *ft_strncpy(char *s1, const char *s2, size_t n)
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
 	size_t size;
 

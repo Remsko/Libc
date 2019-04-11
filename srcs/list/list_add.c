@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 17:56:43 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/28 18:21:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:50:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list_42.h"
 
-inline void list_add(t_list *newp, t_list *head)
+inline void	list_add(t_list *newp, t_list *head)
 {
-    list_insert(newp, head, head->next);
+	list_insert(newp, head, head->next);
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:06:41 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/25 17:09:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/11 17:21:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,26 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
-
-#include "string_42.h"
+#include "memory_42.h"
 #include "read_42.h"
 
-char    *read_file(int fd)
+char	*read_file(int fd)
 {
-    char    buf[BUFF_SIZE + 1];
-    char    *str;
-    char    *tmp;
-    int     ret;
+	char	buff[BUFF_SIZE];
+	char	*str;
+	ssize_t	rtotal;
+	ssize_t	rret;
 
-    str = NULL;
-    while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
-    {
-        buf[ret] = '\0';
-        if (str != NULL)
-        {
-            tmp = ft_strdup(str);
-            free(str);
-            str = ft_strjoin(tmp, buf);
-            free(tmp);
-        }
-        else
-            str = ft_strdup(buf);
-    }
-    if (ret == -1)
-        free(str);
-    return (str);
+	str = NULL;
+	rtotal = 0;
+	while ((rret = read(fd, buff, BUFF_SIZE)) > 0)
+	{
+		str = ft_realloc(str, rtotal + rret + 1, rtotal);
+		ft_memcpy(str + rtotal, buff, rret);
+		str[rtotal + rret] = '\0';
+		rtotal += rret;
+	}
+	if (rret == -1)
+		free(str);
+	return (str);
 }
