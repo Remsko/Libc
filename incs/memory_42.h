@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:37:01 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 17:29:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 19:18:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 
 # define MEM_WORD_LEN (sizeof(unsigned long int))
 # define MEM_BLOCK_SIZE (8 * MEM_WORD_LEN)
-# define MEM_PAGE_SIZE (4096)
-# define MEM_THRESHOLD (2 * MEM_WORD_LEN)
-# define OVER_HEIGHT (0xFFFFFFFFFFFFFFF8UL)
 # define MASK80 (0x8080808080808080UL)
 # define MASK01 (0x0101010101010101UL)
-# define MERGE(w0, sh_1, w1, sh_2) (((w0) >> (sh_1)) | ((w1) << (sh_2)))
 
 void *ft_memalloc(size_t size);
 void *ft_realloc(void *p, size_t new, size_t old);
@@ -34,11 +30,5 @@ void *ft_memccpy(void *dst, const void *src, int c, size_t n);
 void *ft_memset(void *dst, int c, size_t len);
 void *ft_memchr(void const *s, int c, size_t n);
 void ft_bzero(void *s, size_t len);
-
-void wordcopy_fwd_dest_aligned(long int dstp, long int srcp, size_t len);
-void wordcopy_fwd_aligned(long int dstp, long int srcp, size_t len);
-
-void wordcopy_bwd_aligned(long int dstp, long int srcp, size_t len);
-void wordcopy_bwd_dest_aligned(long int dstp, long int srcp, size_t len);
 
 #endif
