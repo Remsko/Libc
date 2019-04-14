@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:22:38 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 20:43:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:55:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-char	*found_c_or_zero(unsigned long ul_ptr, unsigned long cccc, unsigned char c)
+static inline char	*found_c_or_zero(unsigned long ul_ptr, unsigned long cccc, unsigned char c)
 {
 	const unsigned char	*ptr;
 	unsigned long		c_ptr;
