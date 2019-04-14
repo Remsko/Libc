@@ -6,21 +6,21 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 13:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 17:35:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 17:41:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 #include "string_42.h"
 
-inline static void	align_word(unsigned char **pdst, const unsigned char **psrc, size_t offset)
+inline static void	align_word(unsigned char **pdst, const unsigned char **psrc, size_t *n)
 {
-	while (offset > 0)
+	while (*n > 0 && (size_t)*pdst % MEM_WORD_LEN > 0)
 	{
 		(*pdst)[0] = (*psrc)[0];
 		*pdst += 1;
 		*psrc += 1;
-		offset -= 1;
+		*n -= 1;
 	}
 }
 
@@ -71,8 +71,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	p = dst;
 	if (n >= MEM_WORD_LEN)
 	{
-		align_word((unsigned char **)&dst, (const unsigned char **)&src, (size_t)dst % MEM_WORD_LEN);
-		n -= (size_t)dst % MEM_WORD_LEN;
+		align_word((unsigned char **)&dst, (const unsigned char **)&src, &n);
 		copy_blocks((unsigned long **)&dst, (const unsigned long **)&src, n / MEM_BLOCK_SIZE);
 		n %= MEM_BLOCK_SIZE;
 		copy_words((unsigned long **)&dst, (const unsigned long **)&src, n / MEM_WORD_LEN);
