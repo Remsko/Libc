@@ -6,12 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 13:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 19:12:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 19:20:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
-#include "string_42.h"
 
 inline static void	align_word_fwd(unsigned char **pdst, const unsigned char **psrc, size_t *n)
 {
