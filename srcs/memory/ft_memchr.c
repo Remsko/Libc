@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:55:30 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 17:08:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 17:46:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,28 @@ inline static void	*align_word(const unsigned char **ps, unsigned char c, size_t
 	return (NULL);
 }
 
-inline static void	word_search(const unsigned long **ps, unsigned long cccc, size_t *n)
+inline static void	word_search(const unsigned long **ps, unsigned long cccc, size_t words)
 {
 	unsigned long	c;
 	
-	while (*n >= MEM_WORD_LEN)
+	while (words > 0)
 	{
 		c = (**ps) ^ cccc;
 		if ((c - MASK01) & (~c & MASK80))
 			break ;
 		*ps += 1;
-		*n -= MEM_WORD_LEN;
+		words -= 1;
 	}
 }
 
-inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_t *n)
+inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_t bytes)
 {
-	while (*n > 0)
+	while (bytes > 0)
 	{
 		if ((*ps)[0] == c)
 			return ((void *)(*ps));
 		*ps += 1;
-		*n -= 1;
+		bytes -= 1;
 	}
 	return (NULL);
 }
@@ -61,8 +61,9 @@ void				*ft_memchr(void const *s, int c, size_t n)
 	cccc |= cccc << 32;
 	if ((ret = align_word((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
 		return (ret);
-	word_search((const unsigned long **)&s, cccc, &n);
-	if ((ret = byte_search((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
+	word_search((const unsigned long **)&s, cccc, n / MEM_WORD_LEN);
+	n %= MEM_WORD_LEN;
+	if ((ret = byte_search((const unsigned char **)&s, (unsigned char)c, n)) != NULL)
 		return (ret);
 	return (NULL);
 }

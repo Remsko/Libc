@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 13:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 17:41:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 17:43:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 inline static void	align_word(unsigned char **pdst, const unsigned char **psrc, size_t *n)
 {
-	while (*n > 0 && (size_t)*pdst % MEM_WORD_LEN > 0)
+	while (*n > 0 && (size_t)(*pdst) % MEM_WORD_LEN > 0)
 	{
 		(*pdst)[0] = (*psrc)[0];
 		*pdst += 1;
