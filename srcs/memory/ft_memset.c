@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:38:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 19:41:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:09:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void				*ft_memset(void *s, int c, size_t n)
 		cccc |= cccc << 16;
 		cccc |= cccc << 32;
 		align_word((unsigned char **)&s, (unsigned char)c, &n);
-		set_blocks((unsigned long **)&s, cccc, n / MEM_BLOCK_SIZE);
+		block_set((unsigned long **)&s, cccc, n / MEM_BLOCK_SIZE);
 		n %= MEM_BLOCK_SIZE;
-		set_words((unsigned long **)&s, cccc, n / MEM_WORD_LEN);
+		word_set((unsigned long **)&s, cccc, n / MEM_WORD_LEN);
 		n %= MEM_WORD_LEN;
 	}
-	set_bytes((unsigned char **)&s, (unsigned char)c, n);
+	byte_set((unsigned char **)&s, (unsigned char)c, n);
 	return (s);
 }

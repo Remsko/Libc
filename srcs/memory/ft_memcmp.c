@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 19:20:41 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 19:39:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:09:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ inline static void	block_cmp(const unsigned long **ps1, const unsigned long **ps
 {
 	while (*n > MEM_BLOCK_SIZE)
 	{
-		if ((*ps1)[0] != (*ps2[0]));
+		if ((*ps1)[0] != (*ps2[0]))
             break ;
-		if ((*ps1)[1] != (*ps2[1]));
+		if ((*ps1)[1] != (*ps2[1]))
             break ;
-        if ((*ps1)[2] != (*ps2[2]));
+        if ((*ps1)[2] != (*ps2[2]))
             break ;
-        if ((*ps1)[3] != (*ps2[3]));
+        if ((*ps1)[3] != (*ps2[3]))
             break ;
-        if ((*ps1)[4] != (*ps2[4]));
+        if ((*ps1)[4] != (*ps2[4]))
             break ;
-        if ((*ps1)[5] != (*ps2[5]));
+        if ((*ps1)[5] != (*ps2[5]))
             break ;
-        if ((*ps1)[6] != (*ps2[6]));
+        if ((*ps1)[6] != (*ps2[6]))
             break ;
-        if ((*ps1)[7] != (*ps2[7]));
+        if ((*ps1)[7] != (*ps2[7]))
             break ;
 		*ps1 += 8;
         *ps2 += 8;
@@ -84,7 +84,7 @@ int				    ft_memcmp(const void *s1, const void *s2, size_t n)
 		align_word((const unsigned char **)&s1, (const unsigned char **)&s2, &n);
 		block_cmp((const unsigned long **)&s1, (const unsigned long **)&s2, &n);
 		word_cmp((const unsigned long **)&s1, (const unsigned long **)&s2, &n);
-        byte_cmp((const unsigned char **)&s1, (const unsigned char)&s2, &n);
+        byte_cmp((const unsigned char **)&s1, (const unsigned char **)&s2, &n);
         if (n > 0)
             cmp = *(const unsigned char *)s1 - *(const unsigned char *)s2;
 	}

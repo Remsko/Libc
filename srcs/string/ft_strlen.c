@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 14:37:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/11 17:30:59 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:26:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
 static inline size_t	found_zero(const char *str, const char *ptr,
-							unsigned long int ul_ptr)
+							unsigned long ul_ptr)
 {
 	while (1)
 	{
@@ -44,20 +44,17 @@ static inline size_t	found_zero(const char *str, const char *ptr,
 
 size_t					ft_strlen(const char *str)
 {
-	const char			*ptr;
-	unsigned long int	ul_ptr;
+	const char		*ptr;
+	unsigned long	ul_ptr;
 
-	ul_ptr = (unsigned long int)str & OVER_HEIGHT;
+	ul_ptr = (unsigned long)str & ~(MEM_WORD_LEN - 1);
 	ul_ptr += MEM_WORD_LEN;
-	if ((ul_ptr - MASK01) & (~ul_ptr & MASK80))
+	ptr = str;
+	while (ptr < (const char *)ul_ptr)
 	{
-		ptr = str;
-		while (ptr < (const char *)ul_ptr)
-		{
-			if (*ptr == '\0')
-				return (ptr - str);
-			++ptr;
-		}
+		if (*ptr == '\0')
+			return (ptr - str);
+		++ptr;
 	}
 	return (found_zero(str, ptr, ul_ptr));
 }

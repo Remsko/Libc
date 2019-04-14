@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:37:01 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 19:18:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 20:18:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-# define MEM_WORD_LEN (sizeof(unsigned long int))
+# define MEM_WORD_LEN (sizeof(unsigned long))
 # define MEM_BLOCK_SIZE (8 * MEM_WORD_LEN)
 # define MASK80 (0x8080808080808080UL)
 # define MASK01 (0x0101010101010101UL)
