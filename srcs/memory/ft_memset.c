@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:38:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 16:44:13 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 17:29:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,23 @@ inline static void	set_bytes(unsigned char **pdst, unsigned char c, size_t bytes
 	}
 }
 
-void				*ft_memset(void *dst, int c, size_t len)
+void				*ft_memset(void *s, int c, size_t n)
 {
 	unsigned long	cccc;
 
-	if (len >= MEM_WORD_LEN)
+	if (n >= MEM_WORD_LEN)
 	{
 		cccc = (unsigned char)c;
 		cccc |= cccc << 8;
 		cccc |= cccc << 16;
 		cccc |= cccc << 32;
-		align_word((unsigned char **)&dst, (unsigned char)c, (size_t)dst % MEM_WORD_LEN);
-		len -= (unsigned long)dst % MEM_WORD_LEN;
-		set_blocks((unsigned long **)&dst, cccc, len / MEM_BLOCK_SIZE);
-		len %= MEM_BLOCK_SIZE;
-		set_words((unsigned long **)&dst, cccc, len / MEM_WORD_LEN);
-		len %= MEM_WORD_LEN;
+		align_word((unsigned char **)&s, (unsigned char)c, (size_t)s % MEM_WORD_LEN);
+		n -= (size_t)s % MEM_WORD_LEN;
+		set_blocks((unsigned long **)&s, cccc, n / MEM_BLOCK_SIZE);
+		n %= MEM_BLOCK_SIZE;
+		set_words((unsigned long **)&s, cccc, n / MEM_WORD_LEN);
+		n %= MEM_WORD_LEN;
 	}
-	set_bytes((unsigned char **)&dst, (unsigned char)c, len);
-	return (dst);
+	set_bytes((unsigned char **)&s, (unsigned char)c, n);
+	return (s);
 }
