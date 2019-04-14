@@ -6,55 +6,73 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 13:22:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/11 16:57:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 18:41:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-#define BYTE_COPY_BWD(dst_ep, src_ep, nbytes)                            \
-	do                                                                   \
-{                                                                    \
-	size_t bytes = (nbytes);                                         \
-	while (bytes > 0)                                                \
-	{                                                                \
-		src_ep -= 1;                                                 \
-		((unsigned char *)dst_ep)[0] = ((unsigned char *)src_ep)[0]; \
-		dst_ep -= 1;                                                 \
-		bytes -= 1;                                                  \
-	}                                                                \
-} while (0)
-
-#define WORD_COPY_BWD(dst_ep, src_ep, nbytes_left, nbytes)                      \
-	do                                                                          \
-{                                                                           \
-	if (src_ep % MEM_WORD_LEN == 0)                                         \
-	wordcopy_bwd_aligned(dst_ep, src_ep, (nbytes) / MEM_WORD_LEN);      \
-	else                                                                    \
-	wordcopy_bwd_dest_aligned(dst_ep, src_ep, (nbytes) / MEM_WORD_LEN); \
-	src_ep -= (nbytes) & -MEM_WORD_LEN;                                     \
-	dst_ep -= (nbytes) & -MEM_WORD_LEN;                                     \
-	(nbytes_left) = (nbytes) % MEM_WORD_LEN;                                \
-} while (0)
-
-void *ft_memmove(void *dest, const void *src, size_t len)
+inline static void	block_copy_bwd(unsigned long **pdst, const unsigned long **psrc, size_t blocks)
 {
-	unsigned long int dstp = (long int)dest;
-	unsigned long int srcp = (long int)src;
+	while (blocks > 0)
+	{
+		(*pdst)[7] = (*psrc)[7];
+		(*pdst)[6] = (*psrc)[6];
+		(*pdst)[5] = (*psrc)[5];
+		(*pdst)[4] = (*psrc)[4];
+		(*pdst)[3] = (*psrc)[3];
+		(*pdst)[2] = (*psrc)[2];
+		(*pdst)[1] = (*psrc)[1];
+		(*pdst)[0] = (*psrc)[0];
+		*pdst -= 8;
+		*psrc -= 8;
+		blocks -= 1;
+	}
+}
 
-	if (dstp - srcp >= len)
-		dest = ft_memcpy(dest, src, len);
+inline static void	 word_copy_bwd(unsigned long **pdst, const unsigned long **psrc, size_t words)
+{
+	while (words > 0)
+	{
+		(*pdst)[0] = (*psrc)[0];
+		*pdst -= 1;
+		*psrc -= 1;
+		words -= 1;
+	}
+}
+
+inline static void	byte_copy_bwd(unsigned char **pdst, const unsigned char **psrc, size_t bytes)
+{
+	while (bytes > 0)
+	{
+		(*pdst)[0] = (*psrc)[0];
+		*pdst -= 1;
+		*psrc -= 1;
+		bytes -= 1;
+	}
+}
+
+void	*ft_memmove(void *dst, const void *src, size_t n)
+{
+	void *p;
+
+	p = dst;
+	if ((unsigned long)dst - (const unsigned long)src >= n)
+		ft_memcpy(dst, src, n);
 	else
 	{
-		srcp += len;
-		dstp += len;
-		if (len >= MEM_THRESHOLD)
+		dst += n;
+		src += n;
+		if (n >= MEM_WORD_LEN)
 		{
-			len -= dstp % MEM_WORD_LEN;
-			BYTE_COPY_BWD(dstp, srcp, dstp % MEM_WORD_LEN);
-			WORD_COPY_BWD(dstp, srcp, len, len);
+			byte_copy_bwd((unsigned char **)&dst, (const unsigned char **)&src, (size_t)dst % MEM_WORD_LEN);
+			n -= (size_t)dst % MEM_WORD_LEN;
+			block_copy_bwd((unsigned long **)&dst, (const unsigned long **)&src, n / MEM_BLOCK_SIZE);
+			n %= MEM_BLOCK_SIZE;
+			word_copy_bwd((unsigned long **)&dst, (const unsigned long **)&src, n / MEM_WORD_LEN);
+			n %= MEM_WORD_LEN;
 		}
-		BYTE_COPY_BWD(dstp, srcp, len);
+		byte_copy_bwd((unsigned char **)&dst, (const unsigned char **)&src, n);
 	}
-	return (dest);
+	return (p);
 }
