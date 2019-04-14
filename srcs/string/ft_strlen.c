@@ -6,55 +6,55 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 14:37:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 20:26:03 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/14 21:53:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-static inline size_t	found_zero(const char *str, const char *ptr,
-							unsigned long ul_ptr)
+static inline size_t	found_zero(const char *str, const char *pchar,
+							unsigned long word)
 {
 	while (1)
 	{
-		if ((ul_ptr - MASK01) & (~ul_ptr & MASK80))
+		if ((word - MASK01) & (~word & MASK80))
 		{
-			ptr = (const char *)ul_ptr;
-			if (ptr[0] == '\0')
-				return (ptr - str);
-			if (ptr[1] == '\0')
-				return (ptr - str + 1);
-			if (ptr[2] == '\0')
-				return (ptr - str + 2);
-			if (ptr[3] == '\0')
-				return (ptr - str + 3);
-			if (ptr[4] == '\0')
-				return (ptr - str + 4);
-			if (ptr[5] == '\0')
-				return (ptr - str + 5);
-			if (ptr[6] == '\0')
-				return (ptr - str + 6);
-			if (ptr[7] == '\0')
-				return (ptr - str + 7);
+			pchar = (const char *)word;
+			if (pchar[0] == '\0')
+				return (pchar - str);
+			if (pchar[1] == '\0')
+				return (pchar - str + 1);
+			if (pchar[2] == '\0')
+				return (pchar - str + 2);
+			if (pchar[3] == '\0')
+				return (pchar - str + 3);
+			if (pchar[4] == '\0')
+				return (pchar - str + 4);
+			if (pchar[5] == '\0')
+				return (pchar - str + 5);
+			if (pchar[6] == '\0')
+				return (pchar - str + 6);
+			if (pchar[7] == '\0')
+				return (pchar - str + 7);
 		}
-		ul_ptr += MEM_WORD_LEN;
+		word += MEM_WORD_LEN;
 	}
 	return (0);
 }
 
 size_t					ft_strlen(const char *str)
 {
-	const char		*ptr;
-	unsigned long	ul_ptr;
+	const char		*pchar;
+	unsigned long	word;
 
-	ul_ptr = (unsigned long)str & ~(MEM_WORD_LEN - 1);
-	ul_ptr += MEM_WORD_LEN;
-	ptr = str;
-	while (ptr < (const char *)ul_ptr)
+	word = (unsigned long)str & ~(MEM_WORD_LEN - 1);
+	word += MEM_WORD_LEN;
+	pchar = str;
+	while (pchar < (const char *)word)
 	{
-		if (*ptr == '\0')
-			return (ptr - str);
-		++ptr;
+		if (*pchar == '\0')
+			return (pchar - str);
+		++pchar;
 	}
-	return (found_zero(str, ptr, ul_ptr));
+	return (found_zero(str, pchar, word));
 }
