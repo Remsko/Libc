@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 12:46:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/13 17:50:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 12:15:35 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	length;
 
 	if (s == NULL || (split = (char **)malloc(sizeof(char *)
-		* (ft_strwords(s, c) + 1))) == NULL)
+				* (ft_strwords(s, c) + 1))) == NULL)
 		return (NULL);
 	words = 0;
 	while (*s != '\0')

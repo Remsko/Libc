@@ -6,17 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 14:37:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 21:53:53 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 13:37:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-static inline size_t found_zero(const char *str, const char *pchar, const char *pend,  unsigned long word)
+static inline size_t	found_zero(const char *str, const char *pchar,
+							const char *pend, unsigned long word)
 {
 	const char		*cp;
 	unsigned short	index;
-	
+
 	while (word < (unsigned long)pend)
 	{
 		if ((word - MASK01) & (~word & MASK80))
@@ -40,7 +41,7 @@ static inline size_t found_zero(const char *str, const char *pchar, const char *
 	return (pchar - str);
 }
 
-size_t				ft_strnlen(const char *str, size_t maxlen)
+size_t					ft_strnlen(const char *str, size_t maxlen)
 {
 	const char		*pchar;
 	const char		*pend;

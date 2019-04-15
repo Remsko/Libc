@@ -6,13 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:55:30 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/15 11:31:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 14:01:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-inline static void	*align_word(const unsigned char **ps, unsigned char c, size_t *n)
+inline static void	*align_chr(const unsigned char **ps, unsigned char c,
+						size_t *n)
 {
 	while (*n > 0 && (size_t)(*ps) % MEM_WORD_LEN > 0)
 	{
@@ -24,10 +25,11 @@ inline static void	*align_word(const unsigned char **ps, unsigned char c, size_t
 	return (NULL);
 }
 
-inline static void	word_search(const unsigned long **ps, unsigned long cccc, size_t *n)
+inline static void	word_chr(const unsigned long **ps, unsigned long cccc,
+						size_t *n)
 {
 	unsigned long	cp;
-	
+
 	while (*n > MEM_WORD_LEN)
 	{
 		cp = (*ps[0]) ^ cccc;
@@ -38,7 +40,8 @@ inline static void	word_search(const unsigned long **ps, unsigned long cccc, siz
 	}
 }
 
-inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_t *n)
+inline static void	*byte_chr(const unsigned char **ps, unsigned char c,
+						size_t *n)
 {
 	while (*n > 0)
 	{
@@ -52,20 +55,20 @@ inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_
 
 void				*ft_memchr(void const *s, int c, size_t n)
 {
-	void			*ret;
+	void			*p;
 	unsigned long	cccc;
-	
+
 	if (n >= MEM_WORD_LEN)
 	{
 		cccc = (unsigned char)c;
 		cccc |= cccc << 8;
 		cccc |= cccc << 16;
 		cccc |= cccc << 32;
-		if ((ret = align_word((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
-			return (ret);
-		word_search((const unsigned long **)&s, cccc, &n);
+		if ((p = align_chr((const unsigned char **)&s, (unsigned char)c, &n)))
+			return (p);
+		word_chr((const unsigned long **)&s, cccc, &n);
 	}
-	if ((ret = byte_search((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
-		return (ret);
+	if ((p = byte_chr((const unsigned char **)&s, (unsigned char)c, &n)))
+		return (p);
 	return (NULL);
 }

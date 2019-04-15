@@ -6,22 +6,23 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:22:38 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 21:58:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 13:39:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-static inline char	*found_c_or_zero(unsigned long word, unsigned long cccc, unsigned char c)
+static inline char	*search_loop(unsigned long word, unsigned long cccc,
+						unsigned char c)
 {
 	const unsigned char	*pchar;
-	unsigned long		cp;
+	unsigned long		p;
 	unsigned short		index;
-	
+
 	while (1)
 	{
-		cp = word ^ cccc;
-		if ((cp - MASK01) & (~cp & MASK80) || (word - MASK01) & (~word & MASK80))
+		p = word ^ cccc;
+		if ((p - MASK01) & (~p & MASK80) || (word - MASK01) & (~word & MASK80))
 		{
 			pchar = (const unsigned char *)word;
 			index = 0;
@@ -38,7 +39,7 @@ static inline char	*found_c_or_zero(unsigned long word, unsigned long cccc, unsi
 	}
 }
 
-char	*ft_strchr(const char *s, int c)
+char				*ft_strchr(const char *s, int c)
 {
 	const unsigned char	*pchar;
 	unsigned long		word;
@@ -59,5 +60,5 @@ char	*ft_strchr(const char *s, int c)
 	cccc |= cccc << 8;
 	cccc |= cccc << 16;
 	cccc |= cccc << 32;
-	return (found_c_or_zero(word, cccc, (unsigned char)c));
+	return (search_loop(word, cccc, (unsigned char)c));
 }

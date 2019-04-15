@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:38:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/15 11:47:02 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 13:40:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ inline static void	align_word(unsigned char **pdst, unsigned char c, size_t *n)
 	}
 }
 
-inline static void	block_set(unsigned long **pdst, unsigned long cccc, size_t blocks)
+inline static void	block_set(unsigned long **pdst, unsigned long cccc,
+						size_t blocks)
 {
 	while (blocks > 0)
 	{
@@ -39,7 +40,8 @@ inline static void	block_set(unsigned long **pdst, unsigned long cccc, size_t bl
 	}
 }
 
-inline static void	word_set(unsigned long **pdst, unsigned long cccc, size_t words)
+inline static void	word_set(unsigned long **pdst, unsigned long cccc,
+						size_t words)
 {
 	while (words > 0)
 	{
@@ -49,7 +51,8 @@ inline static void	word_set(unsigned long **pdst, unsigned long cccc, size_t wor
 	}
 }
 
-inline static void	byte_set(unsigned char **pdst, unsigned char c, size_t bytes)
+inline static void	byte_set(unsigned char **pdst, unsigned char c,
+						size_t bytes)
 {
 	while (bytes > 0)
 	{

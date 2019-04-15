@@ -6,15 +6,15 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 12:11:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/15 10:44:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 13:40:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "rb_tree_42.h"
 
-static void	else_block(t_rb_tree **root, t_rb_tree *parent, t_rb_tree *grandparent,
-		t_rb_tree *node)
+static void	else_block(t_rb_tree **root, t_rb_tree *parent,
+				t_rb_tree *grandparent, t_rb_tree *node)
 {
 	if (rb_tree_isonleft(parent))
 	{
