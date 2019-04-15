@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 20:38:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 20:09:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 11:47:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ inline static void	byte_set(unsigned char **pdst, unsigned char c, size_t bytes)
 
 void				*ft_memset(void *s, int c, size_t n)
 {
+	void			*p;
 	unsigned long	cccc;
 
+	p = s;
 	if (n >= MEM_WORD_LEN)
 	{
 		cccc = (unsigned char)c;
@@ -76,5 +78,5 @@ void				*ft_memset(void *s, int c, size_t n)
 		n %= MEM_WORD_LEN;
 	}
 	byte_set((unsigned char **)&s, (unsigned char)c, n);
-	return (s);
+	return (p);
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:55:30 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 17:46:34 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 11:31:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 inline static void	*align_word(const unsigned char **ps, unsigned char c, size_t *n)
 {
-	while (*n > 0 && (size_t)(*ps) % MEM_WORD_LEN)
+	while (*n > 0 && (size_t)(*ps) % MEM_WORD_LEN > 0)
 	{
 		if ((*ps)[0] == c)
 			return ((void *)(*ps));
@@ -24,28 +24,28 @@ inline static void	*align_word(const unsigned char **ps, unsigned char c, size_t
 	return (NULL);
 }
 
-inline static void	word_search(const unsigned long **ps, unsigned long cccc, size_t words)
+inline static void	word_search(const unsigned long **ps, unsigned long cccc, size_t *n)
 {
-	unsigned long	c;
+	unsigned long	cp;
 	
-	while (words > 0)
+	while (*n > MEM_WORD_LEN)
 	{
-		c = (**ps) ^ cccc;
-		if ((c - MASK01) & (~c & MASK80))
+		cp = (*ps[0]) ^ cccc;
+		if ((cp - MASK01) & (~cp & MASK80))
 			break ;
 		*ps += 1;
-		words -= 1;
+		*n -= MEM_WORD_LEN;
 	}
 }
 
-inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_t bytes)
+inline static void	*byte_search(const unsigned char **ps, unsigned char c, size_t *n)
 {
-	while (bytes > 0)
+	while (*n > 0)
 	{
 		if ((*ps)[0] == c)
 			return ((void *)(*ps));
 		*ps += 1;
-		bytes -= 1;
+		*n -= 1;
 	}
 	return (NULL);
 }
@@ -55,15 +55,17 @@ void				*ft_memchr(void const *s, int c, size_t n)
 	void			*ret;
 	unsigned long	cccc;
 	
-	cccc = (unsigned char)c;
-	cccc |= cccc << 8;
-	cccc |= cccc << 16;
-	cccc |= cccc << 32;
-	if ((ret = align_word((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
-		return (ret);
-	word_search((const unsigned long **)&s, cccc, n / MEM_WORD_LEN);
-	n %= MEM_WORD_LEN;
-	if ((ret = byte_search((const unsigned char **)&s, (unsigned char)c, n)) != NULL)
+	if (n >= MEM_WORD_LEN)
+	{
+		cccc = (unsigned char)c;
+		cccc |= cccc << 8;
+		cccc |= cccc << 16;
+		cccc |= cccc << 32;
+		if ((ret = align_word((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
+			return (ret);
+		word_search((const unsigned long **)&s, cccc, &n);
+	}
+	if ((ret = byte_search((const unsigned char **)&s, (unsigned char)c, &n)) != NULL)
 		return (ret);
 	return (NULL);
 }

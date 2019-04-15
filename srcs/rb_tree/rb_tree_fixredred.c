@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 12:11:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/11 17:15:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 10:44:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "rb_tree_42.h"
 
-void	else_f(t_rb_tree **root, t_rb_tree *parent, t_rb_tree *grandparent,
+static void	else_block(t_rb_tree **root, t_rb_tree *parent, t_rb_tree *grandparent,
 		t_rb_tree *node)
 {
 	if (rb_tree_isonleft(parent))
@@ -40,7 +40,7 @@ void	else_f(t_rb_tree **root, t_rb_tree *parent, t_rb_tree *grandparent,
 	}
 }
 
-void	rb_tree_fixredred(t_rb_tree **root, t_rb_tree *node)
+void		rb_tree_fixredred(t_rb_tree **root, t_rb_tree *node)
 {
 	t_rb_tree *parent;
 	t_rb_tree *grandparent;
@@ -64,6 +64,6 @@ void	rb_tree_fixredred(t_rb_tree **root, t_rb_tree *node)
 			rb_tree_fixredred(root, grandparent);
 		}
 		else
-			else_f(root, parent, grandparent, node);
+			else_block(root, parent, grandparent, node);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 13:22:25 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/14 19:12:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 12:05:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ inline static void	align_word_bwd(unsigned char **pdst, const unsigned char **ps
 {
 	while (*n > 0 && (size_t)(*pdst) % MEM_WORD_LEN > 0)
 	{
-		(*pdst)[0] = (*psrc)[0];
 		*pdst -= 1;
 		*psrc -= 1;
+		(*pdst)[0] = (*psrc)[0];
 		*n -= 1;
 	}
 }
@@ -27,6 +27,8 @@ inline static void	block_copy_bwd(unsigned long **pdst, const unsigned long **ps
 {
 	while (blocks > 0)
 	{
+		*pdst -= 8;
+		*psrc -= 8;
 		(*pdst)[7] = (*psrc)[7];
 		(*pdst)[6] = (*psrc)[6];
 		(*pdst)[5] = (*psrc)[5];
@@ -35,8 +37,6 @@ inline static void	block_copy_bwd(unsigned long **pdst, const unsigned long **ps
 		(*pdst)[2] = (*psrc)[2];
 		(*pdst)[1] = (*psrc)[1];
 		(*pdst)[0] = (*psrc)[0];
-		*pdst -= 8;
-		*psrc -= 8;
 		blocks -= 1;
 	}
 }
@@ -45,9 +45,9 @@ inline static void	 word_copy_bwd(unsigned long **pdst, const unsigned long **ps
 {
 	while (words > 0)
 	{
-		(*pdst)[0] = (*psrc)[0];
 		*pdst -= 1;
 		*psrc -= 1;
+		(*pdst)[0] = (*psrc)[0];
 		words -= 1;
 	}
 }
@@ -56,9 +56,9 @@ inline static void	byte_copy_bwd(unsigned char **pdst, const unsigned char **psr
 {
 	while (bytes > 0)
 	{
-		(*pdst)[0] = (*psrc)[0];
 		*pdst -= 1;
 		*psrc -= 1;
+		(*pdst)[0] = (*psrc)[0];
 		bytes -= 1;
 	}
 }

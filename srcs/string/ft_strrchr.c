@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:14:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/04/11 17:25:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/04/15 12:07:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	c = (unsigned char)c;
 	if (c == '\0')
 		return ((char *)(s + ft_strlen(s)));
+	found = NULL;
 	while ((ptr = ft_strchr(s, c)) != NULL)
 	{
 		found = ptr;
