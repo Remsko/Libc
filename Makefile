@@ -145,6 +145,9 @@ SRC_NAME += swap_colors.c
 SRC_NAME += swap_datas.c
 SRC_NAME += rb_tree_print_inorder.c
 SRC_NAME += rb_tree_delete.c
+SRC_NAME += rb_tree_swap_node.c
+SRC_NAME += rb_tree_fix_double_black.c
+SRC_NAME += rb_tree_delete_node.c
 
 SRC_SUB += dll
 SRC_NAME += dll_push_front.c
